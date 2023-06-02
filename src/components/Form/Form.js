@@ -1,6 +1,6 @@
 import React from "react";
 
-function Form(props) {
+function Form({ disabled, onGuess }) {
   const [value, setValue] = React.useState("");
   return (
     <form
@@ -8,7 +8,7 @@ function Form(props) {
       onSubmit={(event) => {
         event.preventDefault();
         console.log({ guess: value });
-        props.onGuess(value);
+        onGuess(value);
         setValue("");
       }}
     >
@@ -17,6 +17,7 @@ function Form(props) {
       <input
         id="guess-input"
         type="text"
+        disabled={disabled}
         pattern="\w{5}"
         aria-describedby="hint"
         value={value}
