@@ -1,13 +1,14 @@
 import React from "react";
 
-function Guess() {
+function Guess(props) {
   const [value, setValue] = React.useState("");
   return (
     <form
       className="guess-input-wrapper"
       onSubmit={(event) => {
         event.preventDefault();
-        console.log({ guess: value.toUpperCase() });
+        console.log({ guess: value });
+        props.onGuess(value);
         setValue("");
       }}
     >
@@ -20,7 +21,7 @@ function Guess() {
         aria-describedby="hint"
         value={value}
         onChange={(event) => {
-          setValue(event.target.value);
+          setValue(event.target.value.toUpperCase());
         }}
       />
     </form>
