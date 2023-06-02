@@ -1,9 +1,9 @@
 import React from "react";
-import Guess from "../Guess";
+import Form from "../Form";
 
 import { sample } from "../../utils";
 import { WORDS } from "../../data";
-import PastGuesses from "../PastGuesses/PastGuesses";
+import GuessResults from "../GuessResults";
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -14,8 +14,8 @@ function Game() {
   const [guesses, setGuesses] = React.useState([]);
   return (
     <>
-      <PastGuesses guesses={guesses} />
-      <Guess
+      <GuessResults guesses={guesses} />
+      <Form
         onGuess={(guess) =>
           setGuesses((prevGuesses) => [...prevGuesses, guess])
         }
