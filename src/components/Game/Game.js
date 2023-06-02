@@ -14,7 +14,7 @@ function Game() {
   const [guesses, setGuesses] = React.useState([]);
   return (
     <>
-      <GuessResults guesses={guesses} />
+      <GuessResults guesses={guesses} answer={answer} />
       <Form
         onGuess={(guess) =>
           setGuesses((prevGuesses) => [...prevGuesses, guess])
